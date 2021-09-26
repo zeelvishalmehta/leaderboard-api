@@ -52,12 +52,14 @@ if($stmt->rowCount() > 0){
         array_push($posts_array, $post_data);
     }
     //SHOW POST/POSTS IN JSON FORMAT
+    header($_SERVER['SERVER_PROTOCOL'] . " 200 OK");
     echo json_encode($posts_array);
  
 
 }
 else{
     //IF THER IS NO POST IN OUR DATABASE
+    header($_SERVER['SERVER_PROTOCOL'] . " 204 No Content");
     echo json_encode(['message'=>'No post found']);
 }
 ?>

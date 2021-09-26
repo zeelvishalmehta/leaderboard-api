@@ -47,13 +47,16 @@ if(isset($data->uid)){
         
         
         if($update_stmt->execute()){
+            header($_SERVER['SERVER_PROTOCOL'] . " 200 OK");
             $msg['message'] = 'Points updated successfully';
         }else{
+            header($_SERVER['SERVER_PROTOCOL'] . " 400 Bad Request");
             $msg['message'] = 'Points not updated';
         }   
         
     }
     else{
+        header($_SERVER['SERVER_PROTOCOL'] . " 400 Bad Request");
         $msg['message'] = 'Invlid ID';
     }  
     

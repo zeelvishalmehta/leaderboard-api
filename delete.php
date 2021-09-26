@@ -39,12 +39,15 @@ if(isset($data->uid)){
         $delete_post_stmt->bindValue(':uid', $uid,PDO::PARAM_INT);
         
         if($delete_post_stmt->execute()){
+            header($_SERVER['SERVER_PROTOCOL'] . " 200 OK");
             $msg['message'] = 'User Deleted Successfully';
         }else{
+            header($_SERVER['SERVER_PROTOCOL'] . " 400 Bad Request");
             $msg['message'] = 'User Not Deleted';
         }
         
     }else{
+        header($_SERVER['SERVER_PROTOCOL'] . " 400 Bad Request");
         $msg['message'] = 'Invlid ID';
     }
     // ECHO MESSAGE IN JSON FORMAT

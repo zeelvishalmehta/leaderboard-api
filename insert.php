@@ -35,22 +35,27 @@ if(isset($data->name) && isset($data->age) && isset($data->address)){
             $insert_stmt->bindValue(':address', htmlspecialchars(strip_tags($data->address)),PDO::PARAM_STR);
             
             if($insert_stmt->execute()){
+                header($_SERVER['SERVER_PROTOCOL'] . " 200 OK");
                 $msg['message'] = 'Data Inserted Successfully';
             }else{
+                header($_SERVER['SERVER_PROTOCOL'] . " 400 Bad Request");
                 $msg['message'] = 'Data not Inserted';
             } 
         
         }
         else
         {
+            header($_SERVER['SERVER_PROTOCOL'] . " 406 Not Acceptable");
              $msg['message'] = 'Age must be greater than zero';
         }
     }
     else{
+        header($_SERVER['SERVER_PROTOCOL'] . " 406 Not Acceptable");
         $msg['message'] = 'Oops! empty field detected. Please fill all the fields';
     }
 }
 else{
+    header($_SERVER['SERVER_PROTOCOL'] . " 406 Not Acceptable");
     $msg['message'] = 'Please fill all the fields';
 }
 //ECHO DATA IN JSON FORMAT
