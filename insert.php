@@ -45,17 +45,17 @@ if(isset($data->name) && isset($data->age) && isset($data->address)){
         }
         else
         {
-            header($_SERVER['SERVER_PROTOCOL'] . " 406 Not Acceptable");
+            header($_SERVER['SERVER_PROTOCOL'] . " 400 Bad Request");
              $msg['message'] = 'Age must be greater than zero';
         }
     }
     else{
-        header($_SERVER['SERVER_PROTOCOL'] . " 406 Not Acceptable");
+        header($_SERVER['SERVER_PROTOCOL'] . " 400 Bad Request");
         $msg['message'] = 'Oops! empty field detected. Please fill all the fields';
     }
 }
 else{
-    header($_SERVER['SERVER_PROTOCOL'] . " 406 Not Acceptable");
+    header($_SERVER['SERVER_PROTOCOL'] . " 400 Bad Request");
     $msg['message'] = 'Please fill all the fields';
 }
 //ECHO DATA IN JSON FORMAT

@@ -47,7 +47,7 @@ if(isset($data->uid)){
         }
         
     }else{
-        header($_SERVER['SERVER_PROTOCOL'] . " 400 Bad Request");
+        header($_SERVER['SERVER_PROTOCOL'] . " 404 NOT FOUND");
         $msg['message'] = 'Invlid ID';
     }
     // ECHO MESSAGE IN JSON FORMAT

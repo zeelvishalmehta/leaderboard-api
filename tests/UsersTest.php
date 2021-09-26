@@ -50,7 +50,7 @@ class UsersTest extends TestCase
             ]
         ]);
 
-        $this->assertEquals(406, $response->getStatusCode(),'Age must be greater than zero');
+        $this->assertEquals(400, $response->getStatusCode(),'Age must be greater than zero');
 
         $response = $this->http->post('/leaderboard-api/insert', [
             'json' => [
@@ -59,7 +59,7 @@ class UsersTest extends TestCase
             ]
         ]);
 
-        $this->assertEquals(406, $response->getStatusCode(), 'Missing name should return 406 error');
+        $this->assertEquals(400, $response->getStatusCode(), 'Missing name should return 406 error');
 
         $response = $this->http->post('/leaderboard-api/insert', [
             'json' => [
@@ -68,7 +68,7 @@ class UsersTest extends TestCase
             ]
         ]);
 
-        $this->assertEquals(406, $response->getStatusCode(), 'Age less than or equal to zero return 406 error');
+        $this->assertEquals(400, $response->getStatusCode(), 'Age less than or equal to zero return 406 error');
 
         $response = $this->http->post('/leaderboard-api/insert', [
             'json' => [
@@ -77,7 +77,7 @@ class UsersTest extends TestCase
             ]
         ]);
 
-        $this->assertEquals(406, $response->getStatusCode(), 'Missing address should return 406 error');
+        $this->assertEquals(400, $response->getStatusCode(), 'Missing address should return 406 error');
        
     }
 
@@ -101,7 +101,7 @@ class UsersTest extends TestCase
         $this->assertEquals(400, $response->getStatusCode(), 'User does not exist so points are not be added');
 
         $response = $this->http->post('/leaderboard-api/addpoint');
-        $this->assertEquals(406, $response->getStatusCode(), 'Userid is missing so points are not be added');
+        $this->assertEquals(404, $response->getStatusCode(), 'Userid is missing so points are not be added');
         
     }
 
@@ -125,7 +125,7 @@ class UsersTest extends TestCase
         $this->assertEquals(400, $response->getStatusCode(), 'User does not exist or point is less than zero so points are not be subtracted.');
 
         $response = $this->http->post('/leaderboard-api/subtractpoint');
-        $this->assertEquals(406, $response->getStatusCode(), 'Userid is missing so points are not be subtracted');
+        $this->assertEquals(404, $response->getStatusCode(), 'Userid is missing so points are not be subtracted');
         
     }
 
@@ -149,7 +149,7 @@ class UsersTest extends TestCase
         $this->assertEquals(400, $response->getStatusCode(), 'User not deleted becuase userid does not exist');
 
         $response = $this->http->post('/leaderboard-api/delete');
-        $this->assertEquals(406, $response->getStatusCode(), 'User not deleted becuase userid is missing');
+        $this->assertEquals(404, $response->getStatusCode(), 'User not deleted becuase userid is missing');
         
     }
 
