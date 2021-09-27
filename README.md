@@ -8,6 +8,8 @@ Requirements:<br><br>
 •	PHP version 7.2.5 and above<br>
 •	PHP Unit 9.5<br>
 •	Guzzle 7.3<br>
+•	Editor: Visual Studio 1.60.2 <br>
+•	For Debugging: XDebug (Download URL: https://xdebug.org/) <br>
 
 Installation:
 
